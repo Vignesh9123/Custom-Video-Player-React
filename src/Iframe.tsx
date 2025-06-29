@@ -1,24 +1,8 @@
-import  {MediaController, MediaControlBar, MediaPlayButton, MediaTimeRange, MediaTimeDisplay, MediaDurationDisplay, MediaLoadingIndicator} from 'media-chrome/react'
-import {MediaSettingsMenu, MediaSettingsMenuItem, MediaPlaybackRateMenu, MediaSettingsMenuButton, MediaRenditionMenu} from 'media-chrome/react/menu'
-import {MediaActionTypes, useMediaDispatch, useMediaRef} from 'media-chrome/react/media-store'
-import { MdSettings } from 'react-icons/md'
-import HlsVideoElement from 'hls-video-element/react'
 function App(){
-  const dispatch = useMediaDispatch()
-  const mediaRef = useMediaRef();
-  const jumpto20 = ()=>{
-    const type = MediaActionTypes.MEDIA_SEEK_REQUEST
-    dispatch({type, detail:20})
-  }
-
-  const switchToQuality = (id:string)=>{
-    const type = MediaActionTypes.MEDIA_RENDITION_REQUEST
-    dispatch({type, detail:id})
-  }
   
   return (
     <>
-    <div style={{display:"flex", justifyContent:"center", width:"100vw"}} >
+    {/* <div style={{display:"flex", justifyContent:"center", width:"100vw"}} >
      
     <MediaController  style={{display:"flex", justifyContent:"center"}}>
   <HlsVideoElement ref={mediaRef} height={500} width={900} playsInline crossOrigin={""} slot='media' src='https://video-transcode-9123-outputs.s3.ap-south-1.amazonaws.com/cma6nwtlq000295jg9fxeot80/master.m3u8' >
@@ -53,6 +37,7 @@ function App(){
 
       </MediaSettingsMenuButton>
     </MediaControlBar>
+      <MediaPreviewChapterDisplay/>
 </MediaController>
     </div>
     <div style={{width:'70vw', margin:'auto'}}>
@@ -61,7 +46,10 @@ function App(){
 <button onClick={()=>switchToQuality('0')}>Switch to 360</button>
 <button onClick={()=>switchToQuality('1')}>Switch to 480</button>
 <button onClick={()=>switchToQuality('2')}>Switch to 720</button>
-    </div>
+    </div> */}
+    <p>Video</p>
+    <iframe src='http://localhost:3000' style={{height:"480px", width:"845px", outline:0, border:0}} allowFullScreen/>
+    <p>No video</p>   
     </>
   )
 }
